@@ -18,79 +18,68 @@
             android:layout_margin="10dp" />
     </LinearLayout>
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:layout_height="wrap_content">
 
         <EditText
             android:id="@+id/activity_main_edit_date"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="@string/date"
-            android:layout_margin="10dp"
-            android:layout_weight="40"
-            android:inputType="date"/>
-
-        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_gravity="center">
+            android:hint="@string/date"
+            android:layout_margin="10dp"
+            android:inputType="date"/>
 
-            <Button
-                android:id="@+id/activity_main_date_moins"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:text="@string/minus_btn"
-                android:layout_gravity="center"
-                android:background="@drawable/button_radius_blue_color"
-                style="@style/TextAppearance.AppCompat.Button"/>
-            <Button
-                android:id="@+id/activity_main_date_plus"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:text="@string/plus_btn"
-                android:layout_gravity="center"
-                android:background="@drawable/button_radius_blue_color"
-                style="@style/TextAppearance.AppCompat.Button"/>
+        <Button
+            android:id="@+id/activity_main_date_plus"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:text="@string/plus_btn"
+            android:layout_gravity="center"
+            android:background="@drawable/button_radius_blue_color"
+            style="@style/TextAppearance.AppCompat.Button"
+            android:layout_toRightOf="@+id/activity_main_edit_date"/>
 
-        </LinearLayout>
+        <Button
+            android:id="@+id/activity_main_date_moins"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:text="@string/minus_btn"
+            android:layout_gravity="center"
+            android:background="@drawable/button_radius_blue_color"
+            style="@style/TextAppearance.AppCompat.Button"
+            android:layout_toRightOf="@+id/activity_main_edit_date"
+            android:layout_below="@+id/activity_main_date_plus"/>
 
         <EditText
             android:id="@+id/activity_main_edit_heure"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:hint="@string/hour"
             android:layout_margin="10dp"
-            android:layout_weight="30"
-            android:inputType="time"/>
+            android:inputType="time"
+            android:layout_toRightOf="@+id/activity_main_date_plus"/>
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_gravity="center">
+        <Button
+            android:id="@+id/activity_main_hour_plus"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:text="@string/plus_btn"
+            android:layout_gravity="center"
+            android:background="@drawable/button_radius_blue_color"
+            style="@style/TextAppearance.AppCompat.Button"
+            android:layout_toRightOf="@+id/activity_main_edit_heure" />
 
-            <Button
-                android:id="@+id/activity_main_hour_moins"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:text="@string/minus_btn"
-                android:layout_gravity="center"
-                android:background="@drawable/button_radius_blue_color"
-                style="@style/TextAppearance.AppCompat.Button"/>
-            <Button
-                android:id="@+id/activity_main_hour_plus"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:text="@string/plus_btn"
-                android:layout_gravity="center"
-                android:background="@drawable/button_radius_blue_color"
-                style="@style/TextAppearance.AppCompat.Button"/>
-
-        </LinearLayout>
+        <Button
+            android:id="@+id/activity_main_hour_moins"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:text="@string/minus_btn"
+            android:layout_gravity="center"
+            android:background="@drawable/button_radius_blue_color"
+            style="@style/TextAppearance.AppCompat.Button"
+            android:layout_toRightOf="@+id/activity_main_edit_heure"
+            android:layout_below="@+id/activity_main_hour_plus"/>
 
         <DatePicker
             android:id="@+id/activity_main_picker_result"
@@ -98,7 +87,7 @@
             android:layout_height="0dp"
             android:layout_weight="10"/>
 
-    </LinearLayout>
+    </RelativeLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -191,113 +180,105 @@
 
     </RelativeLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:baselineAligned="false">
-
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:layout_weight="75"
             android:layout_gravity="center_vertical">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_margin="10dp">
+                android:layout_margin="10dp"
+                android:orientation="horizontal">
 
                 <TextView
                     android:id="@+id/activity_main_water"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
+                    android:layout_weight="30"
                     android:text="@string/water"
-                    android:textSize="15sp"
-                    android:layout_weight="30"/>
+                    android:textSize="15sp" />
 
                 <TextView
                     android:id="@+id/activity_main_water_result"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:hint="@string/water_value"
+                    android:layout_gravity="center_vertical"
                     android:layout_weight="40"
-                    android:layout_gravity="center_vertical"/>
+                    android:hint="@string/water_value" />
 
                 <ImageView
                     android:id="@+id/activity_main_water_kpi"
                     android:layout_width="35dp"
                     android:layout_height="35dp"
                     android:layout_weight="15"
-                    android:background="@drawable/ic_sentiment_very_satisfied" />
+                    android:background="@drawable/ic_mood_bad" />
 
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_margin="10dp">
+                android:layout_margin="10dp"
+                android:orientation="horizontal">
 
                 <TextView
                     android:id="@+id/activity_main_alcool"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
+                    android:layout_weight="30"
                     android:text="@string/alcool"
-                    android:textSize="15sp"
-                    android:layout_weight="30"/>
+                    android:textSize="15sp" />
 
                 <TextView
                     android:id="@+id/activity_main_alcool_result"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:hint="@string/alcool_value"
+                    android:layout_gravity="center_vertical"
                     android:layout_weight="40"
-                    android:layout_gravity="center_vertical"/>
+                    android:hint="@string/alcool_value" />
 
                 <ImageView
                     android:id="@+id/activity_main_alcool_kpi"
                     android:layout_width="35dp"
                     android:layout_height="35dp"
                     android:layout_weight="15"
-                    android:background="@drawable/ic_sentiment_very_satisfied" />
+                    android:background="@drawable/ic_sentiment_neutral" />
 
             </LinearLayout>
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/activity_main_alcool_hebdo"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="30"
+                    android:text="@string/week_summary"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/activity_main_alcool_result_hebdo"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="40"
+                    android:hint="@string/alcool_value" />
+
+                <ImageView
+                    android:id="@+id/activity_main_alcool_kpi_hebdo"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_weight="15"
+                    android:background="@drawable/ic_sentiment_very_satisfied" />
+            </LinearLayout>
+
         </LinearLayout>
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_margin="10dp">
-
-        <TextView
-            android:id="@+id/activity_main_alcool_hebdo"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:text="@string/week_summary"
-            android:textSize="15sp"
-            android:layout_weight="30"/>
-
-        <TextView
-            android:id="@+id/activity_main_alcool_result_hebdo"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:hint="@string/alcool_value"
-            android:layout_weight="40"
-            android:layout_gravity="center_vertical"/>
-
-        <ImageView
-            android:id="@+id/activity_main_alcool_kpi_hebdo"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:layout_weight="15"
-            android:background="@drawable/ic_sentiment_very_satisfied" />
-    </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
