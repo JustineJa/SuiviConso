@@ -1,19 +1,363 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:orientation="horizontal">
 
-</android.support.constraint.ConstraintLayout>
+        <EditText
+            android:id="@+id/activity_main_user"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/user"
+            android:layout_margin="10dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/activity_main_edit_date"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="@string/date"
+            android:layout_margin="10dp"
+            android:layout_weight="40"
+            android:inputType="date"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center">
+
+            <Button
+                android:id="@+id/activity_main_date_moins"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:text="@string/minus_btn"
+                android:layout_gravity="center"
+                android:background="@drawable/button_radius_blue_color"
+                style="@style/TextAppearance.AppCompat.Button"/>
+            <Button
+                android:id="@+id/activity_main_date_plus"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:text="@string/plus_btn"
+                android:layout_gravity="center"
+                android:background="@drawable/button_radius_blue_color"
+                style="@style/TextAppearance.AppCompat.Button"/>
+
+        </LinearLayout>
+
+        <EditText
+            android:id="@+id/activity_main_edit_heure"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="@string/hour"
+            android:layout_margin="10dp"
+            android:layout_weight="30"
+            android:inputType="time"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center">
+
+            <Button
+                android:id="@+id/activity_main_hour_moins"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:text="@string/minus_btn"
+                android:layout_gravity="center"
+                android:background="@drawable/button_radius_blue_color"
+                style="@style/TextAppearance.AppCompat.Button"/>
+            <Button
+                android:id="@+id/activity_main_hour_plus"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:text="@string/plus_btn"
+                android:layout_gravity="center"
+                android:background="@drawable/button_radius_blue_color"
+                style="@style/TextAppearance.AppCompat.Button"/>
+
+        </LinearLayout>
+
+        <DatePicker
+            android:id="@+id/activity_main_picker_result"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="10"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_weight="80">
+            <!-- Drink Type -->
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/icon_drink_type"
+                    style="@style/AppTheme.FilterIcon"
+                    android:layout_centerVertical="true"
+                    android:tint="@color/greySecondary"
+                    app:srcCompat="@drawable/ic_local_drink" />
+
+                <Spinner
+                    android:id="@+id/activity_main_type_spinner"
+                    style="@style/AppTheme.FilterSpinner"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@+id/icon_drink_type" />
+
+            </RelativeLayout>
+
+            <!-- Drink Volume -->
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/icon_drink_volume"
+                    style="@style/AppTheme.FilterIcon"
+                    android:layout_centerVertical="true"
+                    android:tint="@color/greySecondary"
+                    app:srcCompat="@drawable/ic_invert_colors" />
+
+                <Spinner
+                    android:id="@+id/activity_main_volume_spinner"
+                    style="@style/AppTheme.FilterSpinner"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@+id/icon_drink_volume" />
+
+            </RelativeLayout>
+        </LinearLayout>
+        <Button
+            android:id="@+id/activity_main_update_btn"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_gravity="end|center_vertical"
+            android:layout_margin="20dp"
+            android:layout_weight="20"
+            android:background="@drawable/ic_add_circle_black_24px"
+            android:enabled="false"
+            style="@style/TextAppearance.AppCompat.Button" />
+
+    </LinearLayout>
+
+    <Space
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="30" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/icon_bar_chart"
+            style="@style/AppTheme.FilterIcon"
+            android:layout_centerVertical="true"
+            android:tint="@color/greySecondary"
+            app:srcCompat="@drawable/ic_bar_chart" />
+
+        <TextView
+            android:id="@+id/activity_main_recap"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/summary"
+            android:textSize="20sp"
+            android:layout_margin="10dp"
+            style="@style/TextAppearance.AppCompat.Title"
+            android:layout_toRightOf="@+id/icon_bar_chart"/>
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:baselineAligned="false">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_weight="75"
+            android:layout_gravity="center_vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_margin="10dp">
+
+                <TextView
+                    android:id="@+id/activity_main_water"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:text="@string/water"
+                    android:textSize="15sp"
+                    android:layout_weight="30"/>
+
+                <TextView
+                    android:id="@+id/activity_main_water_result"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:hint="@string/water_value"
+                    android:layout_weight="40"
+                    android:layout_gravity="center_vertical"/>
+
+                <ImageView
+                    android:id="@+id/activity_main_water_kpi"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_weight="15"
+                    android:background="@drawable/ic_sentiment_very_satisfied" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_margin="10dp">
+
+                <TextView
+                    android:id="@+id/activity_main_alcool"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:text="@string/alcool"
+                    android:textSize="15sp"
+                    android:layout_weight="30"/>
+
+                <TextView
+                    android:id="@+id/activity_main_alcool_result"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:hint="@string/alcool_value"
+                    android:layout_weight="40"
+                    android:layout_gravity="center_vertical"/>
+
+                <ImageView
+                    android:id="@+id/activity_main_alcool_kpi"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_weight="15"
+                    android:background="@drawable/ic_sentiment_very_satisfied" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_margin="10dp">
+
+        <TextView
+            android:id="@+id/activity_main_alcool_hebdo"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:text="@string/week_summary"
+            android:textSize="15sp"
+            android:layout_weight="30"/>
+
+        <TextView
+            android:id="@+id/activity_main_alcool_result_hebdo"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:hint="@string/alcool_value"
+            android:layout_weight="40"
+            android:layout_gravity="center_vertical"/>
+
+        <ImageView
+            android:id="@+id/activity_main_alcool_kpi_hebdo"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_weight="15"
+            android:background="@drawable/ic_sentiment_very_satisfied" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:id="@+id/activity_main_bdd_btn"
+            android:text="@string/database_btn"
+            android:textColor="#fff"
+            android:layout_margin="10dp"
+            android:background="@drawable/button_radius_primary_color"
+            style="@style/TextAppearance.AppCompat.Button"
+            android:layout_weight="50"/>
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:id="@+id/activity_main_param_btn"
+            android:textColor="#fff"
+            android:text="@string/settings"
+            android:layout_margin="10dp"
+            android:background="@drawable/button_radius_accent_color"
+            style="@style/TextAppearance.AppCompat.Button"
+            android:layout_weight="50"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:id="@+id/activity_main_raz_btn"
+            android:textColor="#fff"
+            android:text="@string/delete_btn"
+            android:layout_margin="10dp"
+            android:background="@drawable/button_radius_red_color"
+            style="@style/TextAppearance.AppCompat.Button"
+            android:layout_weight="50"/>
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:id="@+id/activity_main_list_btn"
+            android:textColor="#fff"
+            android:text="@string/lists"
+            android:layout_margin="10dp"
+            android:background="@drawable/button_radius_orange_color"
+            style="@style/TextAppearance.AppCompat.Button"
+            android:layout_weight="50"/>
+
+    </LinearLayout>
+</LinearLayout>
