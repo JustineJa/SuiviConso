@@ -1,14 +1,25 @@
 package com.justinej.suiviconso;
 
 import android.app.DownloadManager;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
+
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -22,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
     Button mHourMoinsBtn;
 
     private Spinner spinnerType, spinnerVolume;
-    //private FirebaseFirestore mFirestore;
+    private FirebaseFirestore mFirestore;
     private DownloadManager.Query mQuery;
 
     @Override
@@ -54,6 +65,32 @@ public class MainActivity extends AppCompatActivity {
         myHour.setText(new StringBuilder()
                 .append(mHour).append(":")
                 .append(mMinute));
+
+        // Initialize Firestore
+        initFirestore();
+    }
+
+    private void initFirestore() {
+        mFirestore = FirebaseFirestore.getInstance();
+        //Initialisation des spinner
+        CollectionReference BoissonsRef = mFirestore.collection("Boissons");
+        Spinner spinner = (Spinner) findViewById(R.id.activity_main_type_spinner);
+        final List<String> subjects = new ArrayList<>();
+        final ArrayAdapter<String> adapter = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_spinner_item, subjects);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(adapter);
+        BoissonsRef.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                if (task.isSuccessful()) {
+                    for (QueryDocumentSnapshot document : task.getResult()) {
+                        String subject = document.getString("Type");
+                        subjects.add(subject);
+                    }
+                    adapter.notifyDataSetChanged();
+                }
+            }
+        });
 
     }
 }

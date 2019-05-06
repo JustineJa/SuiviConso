@@ -123,7 +123,8 @@
             <!-- Drink Type -->
             <RelativeLayout
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp">
 
                 <ImageView
                     android:id="@+id/icon_drink_type"
@@ -143,7 +144,8 @@
             <!-- Drink Volume -->
             <RelativeLayout
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp">
 
                 <ImageView
                     android:id="@+id/icon_drink_volume"
@@ -166,7 +168,7 @@
             style="@style/TextAppearance.AppCompat.Button"
             android:layout_width="60dp"
             android:layout_height="60dp"
-            android:layout_gravity="end"
+            android:layout_gravity="center"
             android:layout_margin="20dp"
             android:background="@drawable/ic_add_circle_black_24px"
             android:enabled="false" />
