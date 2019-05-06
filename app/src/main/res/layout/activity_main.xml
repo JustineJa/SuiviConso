@@ -5,10 +5,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:layout_height="wrap_content">
 
         <EditText
             android:id="@+id/activity_main_user"
@@ -16,7 +15,7 @@
             android:layout_height="wrap_content"
             android:hint="@string/user"
             android:layout_margin="10dp" />
-    </LinearLayout>
+    </RelativeLayout>
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -89,6 +88,11 @@
 
     </RelativeLayout>
 
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="10" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -99,6 +103,7 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:layout_weight="80">
+
             <!-- Drink Type -->
             <RelativeLayout
                 android:layout_width="wrap_content"
@@ -139,16 +144,16 @@
 
             </RelativeLayout>
         </LinearLayout>
+
         <Button
             android:id="@+id/activity_main_update_btn"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_gravity="end|center_vertical"
+            style="@style/TextAppearance.AppCompat.Button"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_gravity="end"
             android:layout_margin="20dp"
-            android:layout_weight="20"
             android:background="@drawable/ic_add_circle_black_24px"
-            android:enabled="false"
-            style="@style/TextAppearance.AppCompat.Button" />
+            android:enabled="false" />
 
     </LinearLayout>
 
@@ -180,109 +185,93 @@
 
     </RelativeLayout>
 
-        <LinearLayout
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/activity_main_water"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_gravity="center_vertical">
+            android:text="@string/water"
+            android:textSize="15sp"
+            android:layout_centerVertical="true"
+            android:layout_margin="10dp"/>
+        <TextView
+            android:id="@+id/activity_main_water_result"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_toRightOf="@+id/activity_main_water"
+            android:hint="@string/water_value"
+            android:layout_centerVertical="true"
+            android:layout_margin="10dp"/>
+        <ImageView
+            android:id="@+id/activity_main_water_kpi"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_toRightOf="@+id/activity_main_water_result"
+            android:background="@drawable/ic_mood_bad" />
+    </RelativeLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/activity_main_alcool"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/alcool"
+            android:textSize="15sp"
+            android:layout_centerVertical="true"
+            android:layout_margin="10dp"/>
+        <TextView
+            android:id="@+id/activity_main_alcool_result"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_toEndOf="@+id/activity_main_alcool"
+            android:hint="@string/alcool_value"
+            android:layout_centerVertical="true"
+            android:layout_margin="10dp"/>
+        <ImageView
+            android:id="@+id/activity_main_alcool_kpi"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_toRightOf="@+id/activity_main_alcool_result"
+            android:background="@drawable/ic_sentiment_neutral" />
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/activity_main_alcool_hebdo"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/activity_main_water"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="30"
-                    android:text="@string/water"
-                    android:textSize="15sp" />
-
-                <TextView
-                    android:id="@+id/activity_main_water_result"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="center_vertical"
-                    android:layout_weight="40"
-                    android:hint="@string/water_value" />
-
-                <ImageView
-                    android:id="@+id/activity_main_water_kpi"
-                    android:layout_width="35dp"
-                    android:layout_height="35dp"
-                    android:layout_weight="15"
-                    android:background="@drawable/ic_mood_bad" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
+                android:text="@string/week_summary"
+                android:textSize="15sp"
+                android:layout_centerVertical="true"
+                android:layout_margin="10dp"/>
+            <TextView
+                android:id="@+id/activity_main_alcool_result_hebdo"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:orientation="horizontal">
+                android:layout_gravity="center_vertical"
+                android:layout_toRightOf="@+id/activity_main_alcool_hebdo"
+                android:hint="@string/alcool_value"
+                android:layout_centerVertical="true"
+                android:layout_margin="10dp"/>
+            <ImageView
+                android:id="@+id/activity_main_alcool_kpi_hebdo"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_toRightOf="@+id/activity_main_alcool_result_hebdo"
+                android:background="@drawable/ic_sentiment_very_satisfied" />
+    </RelativeLayout>
 
-                <TextView
-                    android:id="@+id/activity_main_alcool"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="30"
-                    android:text="@string/alcool"
-                    android:textSize="15sp" />
-
-                <TextView
-                    android:id="@+id/activity_main_alcool_result"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="center_vertical"
-                    android:layout_weight="40"
-                    android:hint="@string/alcool_value" />
-
-                <ImageView
-                    android:id="@+id/activity_main_alcool_kpi"
-                    android:layout_width="35dp"
-                    android:layout_height="35dp"
-                    android:layout_weight="15"
-                    android:background="@drawable/ic_sentiment_neutral" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/activity_main_alcool_hebdo"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="30"
-                    android:text="@string/week_summary"
-                    android:textSize="15sp" />
-
-                <TextView
-                    android:id="@+id/activity_main_alcool_result_hebdo"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="center_vertical"
-                    android:layout_weight="40"
-                    android:hint="@string/alcool_value" />
-
-                <ImageView
-                    android:id="@+id/activity_main_alcool_kpi_hebdo"
-                    android:layout_width="35dp"
-                    android:layout_height="35dp"
-                    android:layout_weight="15"
-                    android:background="@drawable/ic_sentiment_very_satisfied" />
-            </LinearLayout>
-
-        </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:layout_height="wrap_content">
         <Button
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -295,7 +284,6 @@
             android:background="@drawable/button_radius_primary_color"
             style="@style/TextAppearance.AppCompat.Button"
             android:layout_weight="50"/>
-
         <Button
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -309,7 +297,6 @@
             style="@style/TextAppearance.AppCompat.Button"
             android:layout_weight="50"/>
     </LinearLayout>
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -339,6 +326,5 @@
             android:background="@drawable/button_radius_orange_color"
             style="@style/TextAppearance.AppCompat.Button"
             android:layout_weight="50"/>
-
     </LinearLayout>
 </LinearLayout>
