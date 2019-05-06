@@ -19,72 +19,88 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical">
+        <TextView
+            android:id="@+id/activity_main_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:layout_centerVertical="true"
+            android:text="@string/date"
+            android:textSize="20sp" />
         <EditText
             android:id="@+id/activity_main_edit_date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:hint="@string/date"
             android:layout_margin="10dp"
-            android:inputType="date"/>
-
+            android:layout_toRightOf="@+id/activity_main_date"
+            android:hint="@string/editDate"
+            android:inputType="date" />
         <Button
             android:id="@+id/activity_main_date_plus"
+            style="@style/TextAppearance.AppCompat.Button"
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:text="@string/plus_btn"
             android:layout_gravity="center"
+            android:layout_toRightOf="@+id/activity_main_edit_date"
             android:background="@drawable/button_radius_blue_color"
-            style="@style/TextAppearance.AppCompat.Button"
-            android:layout_toRightOf="@+id/activity_main_edit_date"/>
-
+            android:text="@string/plus_btn" />
         <Button
             android:id="@+id/activity_main_date_moins"
+            style="@style/TextAppearance.AppCompat.Button"
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:text="@string/minus_btn"
+            android:layout_below="@+id/activity_main_date_plus"
             android:layout_gravity="center"
-            android:background="@drawable/button_radius_blue_color"
-            style="@style/TextAppearance.AppCompat.Button"
             android:layout_toRightOf="@+id/activity_main_edit_date"
-            android:layout_below="@+id/activity_main_date_plus"/>
+            android:background="@drawable/button_radius_blue_color"
+            android:text="@string/minus_btn" />
 
+        <TextView
+            android:id="@+id/activity_main_hour"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:layout_centerVertical="true"
+            android:text="@string/hour"
+            android:layout_toRightOf="@+id/activity_main_date_plus"
+            android:textSize="20sp" />
         <EditText
             android:id="@+id/activity_main_edit_heure"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:hint="@string/hour"
             android:layout_margin="10dp"
-            android:inputType="time"
-            android:layout_toRightOf="@+id/activity_main_date_plus"/>
+            android:layout_toRightOf="@+id/activity_main_hour"
+            android:hint="@string/editHour"
+            android:inputType="time" />
 
         <Button
             android:id="@+id/activity_main_hour_plus"
+            style="@style/TextAppearance.AppCompat.Button"
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:text="@string/plus_btn"
             android:layout_gravity="center"
+            android:layout_toRightOf="@+id/activity_main_edit_heure"
             android:background="@drawable/button_radius_blue_color"
-            style="@style/TextAppearance.AppCompat.Button"
-            android:layout_toRightOf="@+id/activity_main_edit_heure" />
+            android:text="@string/plus_btn" />
 
         <Button
             android:id="@+id/activity_main_hour_moins"
+            style="@style/TextAppearance.AppCompat.Button"
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:text="@string/minus_btn"
+            android:layout_below="@+id/activity_main_hour_plus"
             android:layout_gravity="center"
-            android:background="@drawable/button_radius_blue_color"
-            style="@style/TextAppearance.AppCompat.Button"
             android:layout_toRightOf="@+id/activity_main_edit_heure"
-            android:layout_below="@+id/activity_main_hour_plus"/>
+            android:background="@drawable/button_radius_blue_color"
+            android:text="@string/minus_btn" />
 
         <DatePicker
             android:id="@+id/activity_main_picker_result"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_weight="10"/>
+            android:layout_weight="10" />
 
     </RelativeLayout>
 

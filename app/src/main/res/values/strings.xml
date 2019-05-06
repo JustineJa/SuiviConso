@@ -2,7 +2,9 @@
     <string name="app_name">SuiviConso</string>
     <string name="user">Firstname</string>
     <string name="date">Date : </string>
+    <string name="editDate">__/__/__</string>
     <string name="hour">Hour : </string>
+    <string name="editHour">__:__</string>
     <string name="plus_btn"> + </string>
     <string name="minus_btn"> - </string>
     <string name="delete_btn">Delete</string>
